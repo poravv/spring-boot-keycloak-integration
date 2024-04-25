@@ -8,13 +8,13 @@ import org.keycloak.admin.client.resource.UsersResource;
 
 public class KeycloakProvider {
 
-    private static final String SERVER_URL = "http://localhost:9090";
-    private static final String REALM_NAME = "spring-boot-realm-dev";
+    private static final String SERVER_URL = "http://localhost:5001";
+    private static final String REALM_NAME = "realm-spring-boot-dev";
     private static final String REALM_MASTER = "master";
-    private static final String ADMIN_CLI = "admin-cli";
-    private static final String USER_CONSOLE = "admin";
-    private static final String PASSWORD_CONSOLE = "admin";
-    private static final String CLIENT_SECRET = "admin";
+    private static final String ADMIN_CLI = "admin-cli";//Se crea por defecto en el keycloak
+    private static final String USER_CONSOLE = "admin"; //Usuario root
+    private static final String PASSWORD_CONSOLE = "AndresKeycloak761995!"; //Password root
+    private static final String CLIENT_SECRET = "Ym5Fxheum1Ked1QyffnAyjIvjgPzQZKC";
 
     public static RealmResource getRealmResource() {
         Keycloak keycloak = KeycloakBuilder.builder()

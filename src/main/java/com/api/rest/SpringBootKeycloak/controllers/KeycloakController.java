@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping("/keycloak/user")
-@PreAuthorize("hasRole('client_admin')")
+@PreAuthorize("hasRole('admin_cli')")
 public class KeycloakController {
 
     @Autowired
@@ -29,7 +29,6 @@ public class KeycloakController {
     public ResponseEntity<?> searchUserByUsername(@PathVariable String username){
          return ResponseEntity.ok(keycloakService.searchUserByUsername(username));
     }
-
 
     @PostMapping("/create")
     public ResponseEntity<?> createUser(@RequestBody UserDTO userDTO) throws URISyntaxException {

@@ -32,7 +32,6 @@ public class KeycloakServiceImpl implements IKeycloakService {
                 .list();
     }
 
-
     /**
      * Metodo para buscar un usuario por su username
      * @return List<UserRepresentation>
