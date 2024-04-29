@@ -13,8 +13,8 @@ public class KeycloakProvider {
     private static final String REALM_MASTER = "master";
     private static final String ADMIN_CLI = "admin-cli";//Se crea por defecto en el keycloak
     private static final String USER_CONSOLE = "admin"; //Usuario root
-    private static final String PASSWORD_CONSOLE = "AndresKeycloak761995!"; //Password root
-    private static final String CLIENT_SECRET = "Ym5Fxheum1Ked1QyffnAyjIvjgPzQZKC";
+    private static final String PASSWORD_CONSOLE = "DivisionTotal2024!"; //Password root
+    private static final String CLIENT_SECRET = "MhNOterZh1twBfvpgY2QDOSwkeBTt5vk";
 
     public static RealmResource getRealmResource() {
         Keycloak keycloak = KeycloakBuilder.builder()

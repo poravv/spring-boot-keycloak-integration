@@ -7,10 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/keycloak/user")
 @PreAuthorize("hasRole('admin_cli')")
 public class KeycloakController {
@@ -31,16 +32,22 @@ public class KeycloakController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createUser(@RequestBody UserDTO userDTO) throws URISyntaxException {
+    public HashMap<String, String> createUser(@RequestBody UserDTO userDTO) throws URISyntaxException {
         String response = keycloakService.createUser(userDTO);
-        return ResponseEntity.created(new URI("/keycloak/user/create")).body(response);
+        //return ResponseEntity.created(new URI("/keycloak/user/create")).body(response);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("message", "Usuario creado correctamente");
+        return map;
     }
 
 
     @PutMapping("/update/{userId}")
-    public ResponseEntity<?> updateUser(@PathVariable String userId, @RequestBody UserDTO userDTO){
+    public HashMap<String, String> updateUser(@PathVariable String userId, @RequestBody UserDTO userDTO){
         keycloakService.updateUser(userId, userDTO);
-        return ResponseEntity.ok("User updated successfully");
+        //return ResponseEntity.ok("User updated successfully");
+        HashMap<String, String> map = new HashMap<>();
+        map.put("message", "Usuario actualizado correctamente");
+        return map;
     }
 
 
