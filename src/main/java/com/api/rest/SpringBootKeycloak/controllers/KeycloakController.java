@@ -25,6 +25,10 @@ public class KeycloakController {
         return ResponseEntity.ok(keycloakService.findAllUsers());
     }
 
+    @GetMapping("/groups/{userId}")
+    public ResponseEntity<?> findAllGroupsByUserId(@PathVariable String userId){
+        return ResponseEntity.ok(keycloakService.searchUserByUsernameGroup(userId));
+    }
 
     @GetMapping("/search/{username}")
     public ResponseEntity<?> searchUserByUsername(@PathVariable String username){

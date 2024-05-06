@@ -9,6 +9,7 @@ import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.admin.client.resource.UserResource;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
+import org.keycloak.representations.idm.GroupRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.lang.NonNull;
@@ -41,7 +42,6 @@ public class KeycloakServiceImpl implements IKeycloakService {
                 .users()
                 .searchByUsername(username, true);
     }
-
 
     /**
      * Metodo para crear un usuario en keycloak
@@ -139,4 +139,9 @@ public class KeycloakServiceImpl implements IKeycloakService {
         UserResource usersResource = KeycloakProvider.getUserResource().get(userId);
         usersResource.update(user);
     }
+
+    public List<GroupRepresentation> searchUserByUsernameGroup(String userId) {
+        return KeycloakProvider.getRealmResource().users().get(userId).groups();
+    }
+
 }
